@@ -1,0 +1,10 @@
+spring:
+    # Data source configuration
+  datasource:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+# Service custom configuration
+robo-apocalypse:
+  contamination-threshold: 3
