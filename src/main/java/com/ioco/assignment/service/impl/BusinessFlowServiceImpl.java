@@ -8,8 +8,6 @@ import com.ioco.assignment.repository.SurvivorRepository;
 import com.ioco.assignment.repository.ZombieRepository;
 import com.ioco.assignment.service.BusinessFlowService;
 import com.ioco.assignment.service.mapper.SurvivorMapper;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +17,6 @@ import java.util.Optional;
 
 @Service
 public class BusinessFlowServiceImpl implements BusinessFlowService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(BusinessFlowServiceImpl.class);
 
     @Autowired
     private SurvivorRepository survivorRepository;
@@ -41,8 +37,6 @@ public class BusinessFlowServiceImpl implements BusinessFlowService {
     @Override
     @Transactional
     public void processContaminationReport(ContaminationModel contaminationReport) {
-        LOGGER.debug("Received contamination request. Suspect: {}, Reporter: {}",
-                contaminationReport.getSuspectId(), contaminationReport.getReporterId());
 
         // The repo API returns an Optional
         Survivor suspect = survivorRepository.findById(contaminationReport.getSuspectId())
