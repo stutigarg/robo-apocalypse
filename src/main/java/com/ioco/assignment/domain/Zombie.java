@@ -4,8 +4,10 @@ import com.ioco.assignment.domain.base.LocatableEntity;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.persistence.*;
 @lombok.Setter
 @lombok.Getter
+@Entity
 /**
  * Thought:
  * <p>
@@ -20,7 +22,11 @@ public class Zombie extends LocatableEntity implements Serializable {
 
     private static final long serialVersionUID = -6853515541145301632L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ID_ZOMBIE")
+    @SequenceGenerator(name = "SEQ_ID_ZOMBIE", allocationSize = 1)
     private Long id;
+    
     private Long personId; // Good to have. Not a FK.
     // Other attributes that we've carried over from origin Survivor class
 
