@@ -50,7 +50,7 @@ public class SurvivorController {
      * When this happens, we need to flag the survivor as infected.
      * A survivor is marked as infected when at least three other survivors report their contamination.
      */
-    @PostMapping
+    @PostMapping("/report-contamination")
     public void reportZombieSuspect(@Valid ContaminationModel contamination) {
         // Response status: OK or ACCEPTED for all valid unique requests
         // Response header 'Location': Get survivor by Id if #unique complains is < 3, Get zombie by Id url otherwise
